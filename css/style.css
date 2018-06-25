@@ -1,0 +1,41 @@
+
+
+body {
+  display: flex;
+  justify-content:center;
+}
+
+/* #container {
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 20% 60% 20%
+}; */
+
+.button_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  margin: 1em;
+}
+
+.grid_container{
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+}
+
+.box {
+  background-color: #444;
+  border: 1px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  #AAA;
+}
