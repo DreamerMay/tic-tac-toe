@@ -50,23 +50,19 @@ $(document).ready(function() {
     boxId = event.target.id;
     playerTurns(boxId);
     updateScreen();
-    checkWinner();
-
-//    pop_msg();
+    checkWinner2();
 
   });
 
   const updateScreen = function() {
-    for (let index = 0; index < board.length; index++) {
-      $('#' + index ).html(board[index]);
+    for (let index = 0; index < g.length; index++) {
+      $('#' + index ).html(g[index]);
     }
-
+    console.log(winMatch);
+    console.log(g);
+    console.log(turn);
   };
 
-
-  // const pop_msg = function(){
-  //
-  // };
 
 
 

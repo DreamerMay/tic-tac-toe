@@ -2,7 +2,7 @@ console.log("main.js");
 
 // create an array for input
 
-// player's turn - if p1 next will be p2 than back to p1, check same for p2 starter
+// player's g - if p1 next will be p2 than back to p1, check same for p2 starter
 
 // every p1 pick choice, update in array.
 
@@ -25,7 +25,7 @@ console.log("main.js");
 
 // When user
 
-const board = [
+const g = [
   " ", " ", " ",
   " ", " ", " ",
   " ", " ", " "
@@ -38,15 +38,15 @@ let winMatch = false;
 let winner
 
 const xPlayer = function (index) {
-  board[index] = "X";
+  g[index] = "X";
 };
 
 const oPlayer = function (index) {
-  board[index] = "O";
+  g[index] = "O";
 };
 
 const playerTurns = function(index) {
-  if (board[index] === " ") {
+  if (g[index] === " ") {
     if (playerOneIsNext === true ) {
       xPlayer(index);
       turn += 1;
@@ -56,72 +56,95 @@ const playerTurns = function(index) {
       turn += 1;
       playerOneIsNext = true;
     }
-    restart(winMatch);
-
-    // pop up message
   };
 };
 
 
-const checkWinner = function () {
+// const checkWinner = function () {
+//
+//   if (g[0] === g[1] && g[1] === g[2] && g[0] != " ") {
+//     // alert (`${g[0]} Player win!`);
+//     winMatch = true;
+//     winner = g[0];
+//     renew();
+//   }
+//   else if (g[3] === g[4] && g[4] === g[5] && g[3] != " ") {
+//     // alert (`${g[3]} Player win!`);
+//     winMatch = true;
+//     winner = g[3];
+//   }
+//   else if (g[6] === g[7] && g[7] === g[8] && g[6] != " ") {
+//     // alert (`${g[6]} Player win!`);
+//     winMatch = true;
+//     winner = g[6];
+//   }
+//   else if (g[0] === g[3] && g[3] === g[6] && g[0] != " ") {
+//     // alert (`${g[0]} Player win!`);
+//     winMatch = true;
+//     winner = g[0];
+//   }
+//   else if (g[1] === g[4] && g[4] === g[7] && g[1] != " ") {
+//     // alert (`${g[0]} Player win!`);
+//     winMatch = true;
+//     winner = g[1];
+//   }
+//   else if (g[2] === g[5] && g[5] === g[8] && g[2] != " ") {
+//     // alert (`${g[2]} Player win!`);
+//     winMatch = true;
+//     winner = g[2];
+//   }
+//   else if (g[0] === g[4] && g[4] === g[8] && g[0] != " ") {
+//     // alert (`${g[0]} Player win!`);
+//     winMatch = true;
+//     winner = g[0];
+//   }
+//   else if (g[2] === g[4] && g[4] === g[6] && g[2] != " ") {
+//     // alert (`${g[2]} Player win!`);
+//     winMatch = true;
+//     winner = g[2];
+//   }
+//   else if (g >= 9){
+//     alert (`It's a Draw!`);
+//     renew();
+//     win_match = false;
+//   }
+// };
 
-  if (board[0] === board[1] && board[1] === board[2] && board[0] != " ") {
-    // alert (`${board[0]} Player win!`);
-    winMatch = true;
-    winner = board[0];
 
-  }
-  else if (board[3] === board[4] && board[4] === board[5] && board[3] != " ") {
-    // alert (`${board[3]} Player win!`);
-    winMatch = true;
-    winner = board[3];
-  }
-  else if (board[6] === board[7] && board[7] === board[8] && board[6] != " ") {
-    // alert (`${board[6]} Player win!`);
-    winMatch = true;
-    winner = board[6];
-  }
-  else if (board[0] === board[3] && board[3] === board[6] && board[0] != " ") {
-    // alert (`${board[0]} Player win!`);
-    winMatch = true;
-    winner = board[0];
-  }
-  else if (board[1] === board[4] && board[4] === board[7] && board[1] != " ") {
-    // alert (`${board[0]} Player win!`);
-    winMatch = true;
-    winner = board[1];
-  }
-  else if (board[2] === board[5] && board[5] === board[8] && board[2] != " ") {
-    // alert (`${board[2]} Player win!`);
-    winMatch = true;
-    winner = board[2];
-  }
-  else if (board[0] === board[4] && board[4] === board[8] && board[0] != " ") {
-    // alert (`${board[0]} Player win!`);
-    winMatch = true;
-    winner = board[0];
-  }
-  else if (board[2] === board[4] && board[4] === board[6] && board[2] != " ") {
-    // alert (`${board[2]} Player win!`);
-    winMatch = true;
-    winner = board[2];
-  }
-  else if (turn >= 9){
-    alert (`It's a Draw!`);
-    restart();
-    win_match = false;
-  }
-};
+//checkWinner2
 
-const restart = function() {
-  if (winMatch === true) {
-    alert (`Player ${winner} is a winner!`);
-    //clear array;
-    for (var i = 0; i < board.length; i++) {
-      board[i] = " ";
-      winMatch === false;
+const checkWinner2 = function() {
+  if ((g[0] === g[1] && g[1] === g[2] && g[0] != " ") ||
+      (g[3] === g[4] && g[4] === g[5] && g[3] != " ") ||
+      (g[6] === g[7] && g[7] === g[8] && g[6] != " ") ||
+      (g[0] === g[3] && g[3] === g[6] && g[0] != " ") ||
+      (g[1] === g[4] && g[4] === g[7] && g[1] != " ") ||
+      (g[2] === g[5] && g[5] === g[8] && g[2] != " ") ||
+      (g[0] === g[4] && g[4] === g[8] && g[0] != " ") ||
+      (g[2] === g[4] && g[4] === g[6] && g[2] != " ") ) {
+        winMatch = true;
+        alert (`Player ${winner} is a winner!`);
+        renew();
+        winMatch = false;
+  //      winner = ?
+  } else if (turn === 9) {
+        winMatch = true
+        alert (`It's a Draw!`);
+        renew();
+        turn = 0;
+        winMatch = false;
       }
+}
+
+const renew = function() {
+  if (winMatch === true) {
+    //alert (`Player ${winner} is a winner!`);
+    //clear array;
+    for (var i = 0; i < g.length; i++) {
+      g[i] = " ";
+      winMatch = false;
     }
+   }
 };
 
 
