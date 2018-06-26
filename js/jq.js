@@ -48,13 +48,26 @@ $(document).ready(function() {
 
   $('.box').click(function(){
     boxId = event.target.id;
-    player_turns(boxId);
-    updateScreen(boxId);
+    playerTurns(boxId);
+    updateScreen();
+    checkWinner();
+
+//    pop_msg();
+
   });
 
-  const updateScreen = function(index) {
-    $('#' + index ).html(board[index]);
+  const updateScreen = function() {
+    for (let index = 0; index < board.length; index++) {
+      $('#' + index ).html(board[index]);
+    }
+
   };
+
+
+  // const pop_msg = function(){
+  //
+  // };
+
 
 
 
