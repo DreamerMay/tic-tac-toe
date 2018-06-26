@@ -18,31 +18,32 @@
 // When user
 
 const board = [
-  "o", "o", "o",
-  "", "", "",
-  "", "", ""
+  " ", "", " ",
+  " ", " ", " ",
+  " ", " ", " "
 ];
 
 const xPlayerArray = [];
 const oPlayerArray = [];
 let playerOneIsNext = true;
+let turn = 0;
 
 const xPlayer = function (index) {
-  xPlayerArray.push(index);
   board[index] = "X";
 };
 
 const oPlayer = function (index) {
-  oPlayerArray.push(index);
   board[index] = "O";
 };
 
 const player_turns = function(index) {
   if (playerOneIsNext === true) {
     xPlayer(index);
+    turn += 1;
     playerOneIsNext = false;
   } else {
     oPlayer(index);
+    turn += 1;
     playerOneIsNext = true;
   }
 };
@@ -66,30 +67,31 @@ const check_match = function () {
   // let win6 = [2,5,8];
   // let win7 = [0,4,8];
   // let win8 = [2,4,6];
-  if (board[0] === board[1] && board[1] === board[2] && board[0] != "") {
+  if (board[0] === board[1] && board[1] === board[2] && board[0] != " ") {
     console.log(`${board[0]} Player win!`);
   }
-  else if (board[3] === board[4] && board[4] === board[5] && board[3] != "") {
+  else if (board[3] === board[4] && board[4] === board[5] && board[3] != " ") {
     console.log(`${board[3]} Player win!`);
   }
-  else if (board[6] === board[7] && board[7] === board[8] && board[6] != "") {
+  else if (board[6] === board[7] && board[7] === board[8] && board[6] != " ") {
     console.log(`${board[6]} Player win!`);
   }
-  else if (board[0] === board[3] && board[3] === board[6] && board[0] != "") {
+  else if (board[0] === board[3] && board[3] === board[6] && board[0] != " ") {
     console.log(`${board[0]} Player win!`);
   }
-  else if (board[1] === board[4] && board[4] === board[7] && board[1] != "") {
+  else if (board[1] === board[4] && board[4] === board[7] && board[1] != " ") {
     console.log(`${board[0]} Player win!`);
   }
-  else if (board[2] === board[5] && board[5] === board[8] && board[2] != "") {
+  else if (board[2] === board[5] && board[5] === board[8] && board[2] != " ") {
     console.log(`${board[2]} Player win!`);
   }
-  else if (board[0] === board[4] && board[4] === board[8] && board[0] != "") {
+  else if (board[0] === board[4] && board[4] === board[8] && board[0] != " ") {
     console.log(`${board[0]} Player win!`);
   }
   else if (board[2] === board[4] && board[4] === board[6] && board[2] != " ") {
     console.log(`${board[2]} Player win!`);
-  } else {
+  }
+  else if (turn >= 9){
     console.log("Draw");
   }
 };
