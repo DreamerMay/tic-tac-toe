@@ -1,4 +1,4 @@
-
+console.log("main.js");
 
 // create an array for input
 
@@ -18,13 +18,13 @@
 // When user
 
 const board = [
-  " ", "", " ",
+  " ", " ", " ",
   " ", " ", " ",
   " ", " ", " "
 ];
 
-const xPlayerArray = [];
-const oPlayerArray = [];
+// const xPlayerArray = [];
+// const oPlayerArray = [];
 let playerOneIsNext = true;
 let turn = 0;
 
@@ -37,15 +37,19 @@ const oPlayer = function (index) {
 };
 
 const player_turns = function(index) {
-  if (playerOneIsNext === true) {
-    xPlayer(index);
-    turn += 1;
-    playerOneIsNext = false;
-  } else {
-    oPlayer(index);
-    turn += 1;
-    playerOneIsNext = true;
-  }
+  if (board[index] === " ") {
+    if (playerOneIsNext === true ) {
+      xPlayer(index);
+      turn += 1;
+      playerOneIsNext = false;
+    } else {
+      oPlayer(index);
+      turn += 1;
+      playerOneIsNext = true;
+    }
+
+    check_winner();
+  };
 };
 
 // check back later;
@@ -58,7 +62,7 @@ const player_turns = function(index) {
 //     }
 //   };
 
-const check_match = function () {
+const check_winner = function () {
   // let win1 = [0,1,2];
   // let win2 = [3,4,5];
   // let win3 = [6,7,8];

@@ -37,5 +37,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color:  #AAA;
+  color:  pink;
+  font-size: 100px;
 }
