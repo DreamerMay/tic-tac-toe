@@ -58,7 +58,7 @@ $(document).ready(function() {
 //  alternative way to update screen
 
   $('.box').click(function(event){
-     if (matchCompleted === false) {
+    if (matchCompleted === false) {
     boxId = event.target.id;
     playerTurns(boxId);
     checkWinner2();

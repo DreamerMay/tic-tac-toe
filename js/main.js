@@ -50,18 +50,22 @@ const playerTurns = function(index) {
   if (g[index] === " ") {
     if (playerOneIsNext === true ) {
       xPlayer(index);
+      console.log("change button x")
+      $('#o').css('border-bottom', '5px solid #FFC0CB');
+      $('#x').css('border-bottom', '5px solid #555');
+
       turn += 1;
       playerOneIsNext = false;
     } else {
       oPlayer(index);
+      $('#x').css('border-bottom', '5px solid #FFC0CB');
+      $('#o').css('border-bottom', '5px solid #555');
+      console.log("change button o")
       turn += 1;
       playerOneIsNext = true;
     }
   };
 };
-
-
-
 
 // const checkWinner = function () {
 //
@@ -113,9 +117,8 @@ const playerTurns = function(index) {
 //   }
 // };
 
-
-//checkWinner2
 const checkWinner2 = function() {
+      updateScreen();
   if ((g[0] === g[1] && g[1] === g[2] && g[0] != " ") ||
       (g[3] === g[4] && g[4] === g[5] && g[3] != " ") ||
       (g[6] === g[7] && g[7] === g[8] && g[6] != " ") ||
@@ -139,9 +142,11 @@ const checkWinner2 = function() {
 
 
 const renew = function() {
+
   if (matchCompleted === true) {
     for (var i = 0; i < g.length; i++) {
       g[i] = " ";
+
       matchCompleted = false;
     }
    }
@@ -149,14 +154,17 @@ const renew = function() {
 
 const matchResultMsg = function () {
   if (matchCompleted === true && turn >= 9) {
-    $('#gameCompleted').text(`It's a Draw`)
+    $('#gameCompleted').html(`It's a Draw`).fadeIn();
     turn = 0;
   } else if (matchCompleted === true) {
-    $('#gameCompleted').text(`${winner} is a winner!`)
+    $('#gameCompleted').html(`${winner} is a winner!`).fadeIn();
     turn = 0;
-  }
-}
-
+  } else if (matchCompleted === false) {
+      $('#gameCompleted').on('click', function(){
+        $(this).fadeOut();
+      });
+    };
+};
 
 
 
