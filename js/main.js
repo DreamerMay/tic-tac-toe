@@ -53,7 +53,6 @@ const playerTurns = function(index) {
       console.log("change button x")
       $('#o').css('border-bottom', '5px solid #FFC0CB');
       $('#x').css('border-bottom', '5px solid #555');
-
       turn += 1;
       playerOneIsNext = false;
     } else {
