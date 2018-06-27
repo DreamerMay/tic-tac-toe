@@ -34,8 +34,9 @@ const g = [
 
 let playerOneIsNext = true;
 let turn = 0;
-let winMatch = false;
-let winner
+let matchCompleted = false;
+let winner ;
+
 
 const xPlayer = function (index) {
   g[index] = "X";
@@ -60,47 +61,49 @@ const playerTurns = function(index) {
 };
 
 
+
+
 // const checkWinner = function () {
 //
 //   if (g[0] === g[1] && g[1] === g[2] && g[0] != " ") {
 //     // alert (`${g[0]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[0];
 //     renew();
 //   }
 //   else if (g[3] === g[4] && g[4] === g[5] && g[3] != " ") {
 //     // alert (`${g[3]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[3];
 //   }
 //   else if (g[6] === g[7] && g[7] === g[8] && g[6] != " ") {
 //     // alert (`${g[6]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[6];
 //   }
 //   else if (g[0] === g[3] && g[3] === g[6] && g[0] != " ") {
 //     // alert (`${g[0]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[0];
 //   }
 //   else if (g[1] === g[4] && g[4] === g[7] && g[1] != " ") {
 //     // alert (`${g[0]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[1];
 //   }
 //   else if (g[2] === g[5] && g[5] === g[8] && g[2] != " ") {
 //     // alert (`${g[2]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[2];
 //   }
 //   else if (g[0] === g[4] && g[4] === g[8] && g[0] != " ") {
 //     // alert (`${g[0]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[0];
 //   }
 //   else if (g[2] === g[4] && g[4] === g[6] && g[2] != " ") {
 //     // alert (`${g[2]} Player win!`);
-//     winMatch = true;
+//     matchCompleted = true;
 //     winner = g[2];
 //   }
 //   else if (g >= 9){
@@ -112,7 +115,6 @@ const playerTurns = function(index) {
 
 
 //checkWinner2
-
 const checkWinner2 = function() {
   if ((g[0] === g[1] && g[1] === g[2] && g[0] != " ") ||
       (g[3] === g[4] && g[4] === g[5] && g[3] != " ") ||
@@ -122,30 +124,38 @@ const checkWinner2 = function() {
       (g[2] === g[5] && g[5] === g[8] && g[2] != " ") ||
       (g[0] === g[4] && g[4] === g[8] && g[0] != " ") ||
       (g[2] === g[4] && g[4] === g[6] && g[2] != " ") ) {
-        winMatch = true;
-        alert (`Player ${winner} is a winner!`);
-        renew();
-        winMatch = false;
-  //      winner = ?
-  } else if (turn === 9) {
-        winMatch = true
-        alert (`It's a Draw!`);
-        renew();
-        turn = 0;
-        winMatch = false;
+        matchCompleted = true;
+        winner = g[turn - 1];
+        updateScreen();
+
+    } else if (turn >= 9 ) {
+        matchCompleted = true;
+        updateScreen();
+
+      } else {
+        updateScreen();
       }
-}
+};
+
 
 const renew = function() {
-  if (winMatch === true) {
-    //alert (`Player ${winner} is a winner!`);
-    //clear array;
+  if (matchCompleted === true) {
     for (var i = 0; i < g.length; i++) {
       g[i] = " ";
-      winMatch = false;
+      matchCompleted = false;
     }
    }
 };
+
+const matchResultMsg = function () {
+  if (matchCompleted === true && turn >= 9) {
+    $('#gameCompleted').text(`It's a Draw`)
+    turn = 0;
+  } else if (matchCompleted === true) {
+    $('#gameCompleted').text(`${winner} is a winner!`)
+    turn = 0;
+  }
+}
 
 
 

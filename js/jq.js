@@ -1,6 +1,17 @@
 console.log("jq.js");
 
 
+const updateScreen = function() {
+  for (let index = 0; index < g.length; index++) {
+    $('#' + index ).html(g[index]);
+  }
+  console.log(matchCompleted);
+  console.log(g);
+  console.log(turn);
+};
+
+
+
 $(document).ready(function() {
 
   // // user click a box, it shows the x or
@@ -46,22 +57,15 @@ $(document).ready(function() {
   // });
 //  alternative way to update screen
 
-  $('.box').click(function(){
+  $('.box').click(function(event){
+     if (matchCompleted === false) {
     boxId = event.target.id;
     playerTurns(boxId);
-    updateScreen();
     checkWinner2();
-
-  });
-
-  const updateScreen = function() {
-    for (let index = 0; index < g.length; index++) {
-      $('#' + index ).html(g[index]);
+    matchResultMsg();
+    renew();
     }
-    console.log(winMatch);
-    console.log(g);
-    console.log(turn);
-  };
+  });
 
 
 
