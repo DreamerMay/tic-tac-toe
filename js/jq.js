@@ -17,11 +17,12 @@ $(document).ready(function() {
 
   $('.box').click(function(event){
     if (matchCompleted === false) {
-    boxId = event.target.id;
-    playerTurns(boxId);
-    checkWinner2();
-    matchResultMsg();
-    renew();
+      boxId = event.target.id;
+      playerTurns(boxId);
+      checkWinner2();
+      matchResultMsg();
+      renew();
+      // updateScreen()
     }
   });
 

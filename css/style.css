@@ -90,7 +90,7 @@ h1 {
 
 #gameCompleted {
   display: none;
-  font-size: 100px;
+  font-size: 10vw;
   align-items:center;
   justify-content: center;
   color: pink;
