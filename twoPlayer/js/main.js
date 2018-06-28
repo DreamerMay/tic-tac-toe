@@ -11,7 +11,7 @@ const g = [
 let playerOneIsNext = true;
 let turn = 0;
 let matchCompleted = false;
-let winner ;
+
 
 
 const xPlayer = function (index) {
@@ -56,7 +56,7 @@ const checkWinner2 = function() {
       (g[0] === g[4] && g[4] === g[8] && g[0] != " ") ||
       (g[2] === g[4] && g[4] === g[6] && g[2] != " ") ) {
         matchCompleted = true;
-        winner = g[turn - 1];
+
         $('#win')[0].play();
         updateScreen();
 
@@ -105,9 +105,3 @@ const matchResultMsg = function () {
       });
     };
 };
-
-
-function removeTransition(e) {
-  if (e.propertyName !== 'transform') return;
-  e.target.classList.remove('playing');
-}
