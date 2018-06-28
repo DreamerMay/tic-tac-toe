@@ -47,7 +47,8 @@ h1 {
   border-left: none;
   border-right: none;
   border-bottom: 5px solid #555;
-  font-family: 'Monoton', cursive;
+  font-family: 'Paytone+One', sans-serif;
+  font-weight: bold;
   color:  pink;
   display: inline-block;
   align-items: center;
