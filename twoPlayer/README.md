@@ -7,11 +7,18 @@
 Alternative Headings
 _____________________
 
-# Link To The LIve Site
+## Link To The LIve Site
  https://dreamermay.github.io/tic-tac-toe/twoPlayer
 
-# Link to the github codes
+## Link to the github codes
 https://github.com/DreamerMay/tic-tac-toe
+
+## Language Used
+ * html
+ * css
+ * javascript
+ * jQuery
+
 
 
 There is another version using AI coming up.

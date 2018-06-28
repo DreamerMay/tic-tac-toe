@@ -262,21 +262,22 @@ const aIdefence = function() {
 const random = function() {
   for (let i = 0; i < g.length; i++) {
     console.log(g[i])
-    if (g[i] != "x" && g[i] != "o" && aIattack === false && aIdefence === false) {
-      g[i] = "o"; // not working
+     debugger;
+    if (g[i] != "x" && g[i] != "o" && aIattack() === false && aIdefence() === false) {
+      oPlayer(i);
       return true;
-    } else if (a)
-    return false;
+    } 
   }
+  return false;
 };
 
 
 const priorityMove = function () {
-  if (aIattack === true && random === true && aIdefence === true) {
+  if (aIattack() === true && random() === true && aIdefence() === true) {
     aIattack();
-  } else if (aIattack === true && aIdefence === true) {
+  } else if (aIattack() === true && aIdefence() === true) {
     aIdefence();
-  } else if (aIattack === false && aIdefence === false){
+  } else if (aIattack() === false && aIdefence() === false){
     random();
   }
 };
