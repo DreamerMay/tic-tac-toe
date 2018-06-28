@@ -27,12 +27,18 @@ const playerTurns = function(index) {
     if (playerOneIsNext === true ) {
       xPlayer(index);
       console.log("change button x")
+
+      $('#playerX')[0].play();
+
       $('#o').css('border-bottom', '5px solid #FFC0CB');
       $('#x').css('border-bottom', '5px solid #555');
       turn += 1;
       playerOneIsNext = false;
     } else {
       oPlayer(index);
+
+      $('#playerY')[0].play();
+
       $('#x').css('border-bottom', '5px solid #FFC0CB');
       $('#o').css('border-bottom', '5px solid #555');
       console.log("change button o")
@@ -55,12 +61,13 @@ const checkWinner2 = function() {
       (g[2] === g[4] && g[4] === g[6] && g[2] != " ") ) {
         matchCompleted = true;
         winner = g[turn - 1];
+        $('#win')[0].play();
         updateScreen();
 
     } else if (turn >= 9 ) {
         matchCompleted = true;
         updateScreen();
-
+        $('#draw')[0].play();
       } else {
         updateScreen();
       }
@@ -91,3 +98,9 @@ const matchResultMsg = function () {
       });
     };
 };
+
+
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return;
+  e.target.classList.remove('playing');
+}
