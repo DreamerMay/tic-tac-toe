@@ -41,12 +41,12 @@ const playerTurns = function(index) {
     }
 
   };
-  // console.log(playerOneIsNext);
+  console.log(playerOneIsNext);
 };
 
-Two players
+
 const checkWinner2 = function() {
-      updateScreen(); // update my final screen
+      updateScreen();
   if ((g[0] === g[1] && g[1] === g[2] && g[0] != " ") ||
       (g[3] === g[4] && g[4] === g[5] && g[3] != " ") ||
       (g[6] === g[7] && g[7] === g[8] && g[6] != " ") ||
@@ -56,6 +56,7 @@ const checkWinner2 = function() {
       (g[0] === g[4] && g[4] === g[8] && g[0] != " ") ||
       (g[2] === g[4] && g[4] === g[6] && g[2] != " ") ) {
         matchCompleted = true;
+        winner = g[turn - 1];
         $('#win')[0].play();
         updateScreen();
 
@@ -67,7 +68,6 @@ const checkWinner2 = function() {
         updateScreen();
       }
 };
-
 
 
 const renew = function() {
@@ -86,20 +86,28 @@ const matchResultMsg = function () {
   if (matchCompleted === true && turn >= 9) {
     $('#gameCompleted').html(`It's a Draw`).fadeIn();
     turn = 0;
-    } else if (matchCompleted === true) {
-      turn = 0;
-      if (playerOneIsNext) {
-        console.log("O is the winner");
-        $('#gameCompleted').html(`O is a winner!`).fadeIn();
-      } else {
-        console.log("X is the winner");
-        $('#gameCompleted').html(`X is a winner!`).fadeIn();
-      }
-    } else if (matchCompleted === false) {
-        $('#gameCompleted').on('click', function(){
-          $(this).fadeOut();
-          renew()
-          updateScreen()
-        });
-  };
+  } else if (matchCompleted === true) {
+    turn = 0;
+    if (playerOneIsNext) {
+      console.log("O is the winner");
+      $('#gameCompleted').html(`O is a winner!`).fadeIn();
+    } else {
+      console.log("X is the winner");
+      $('#gameCompleted').html(`X is a winner!`).fadeIn();
+    }
+
+
+  } else if (matchCompleted === false) {
+      $('#gameCompleted').on('click', function(){
+        $(this).fadeOut();
+        renew()
+        updateScreen()
+      });
+    };
 };
+
+
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return;
+  e.target.classList.remove('playing');
+}
