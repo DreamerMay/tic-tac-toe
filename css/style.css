@@ -47,21 +47,17 @@ h1 {
   border-left: none;
   border-right: none;
   border-bottom: 5px solid #555;
-  padding-bottom: 1px;
   font-family: 'Monoton', cursive;
   color:  pink;
   display: inline-block;
   align-items: center;
   justify-content: center;
-  width: 8em ;
-  height: 2em;
+  width: 4em ;
+  height: 1.5em;
   margin: 1em;
   font-size: 4vw;
-
   margin: 10px 10px 20px 10px;
 }
-
-
 
 .gridContainer{
     font-family: 'Monoton', cursive;
@@ -69,9 +65,7 @@ h1 {
     display: grid;
     grid-template-rows: 10em 10em 10em;
     grid-template-columns: 10em 10em 10em;
-
 }
-
 
 .box {
   background-color: #444;
@@ -116,7 +110,7 @@ h1 {
       grid-template-columns: 5em 5em 5em;
     }
     .button {
-      width: 4em ;
+      width: 3em ;
       height: 2em;
     }
   }
