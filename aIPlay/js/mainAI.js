@@ -37,8 +37,7 @@ const playerTurns = function(index) {
       setTimeout (function() {
         aIattack();
         aIdefence();
-        random();
-        // priority();
+        priorityMove();
         console.log("AI Playing");
         updateScreen()
         $('#playerY')[0].play();
@@ -58,224 +57,229 @@ const playerTurns = function(index) {
 
 const aIattack = function() {
   if (turn >= 1 && g[4] === " " ) {
-    oPlayer(4);
-  }
-    else if (g[0] === g[1] && g[0] === "o" && g[2] === " ") {
-          oPlayer(2);
-           return false
-  }
-    else if (g[0] === g[2] && g[0] === "o" && g[1] === " ") {
-          oPlayer(1);
-          return false
-  }
-    else if (g[1] === g[2] && g[1] === "o" && g[0] === " ") {
+      oPlayer(4);
+      return true
+    }
+      else if (g[0] === g[1] && g[0] === "o" && g[2] === " ") {
+            oPlayer(2);
+             return true
+    }
+      else if (g[0] === g[2] && g[0] === "o" && g[1] === " ") {
+            oPlayer(1);
+            return true
+    }
+      else if (g[1] === g[2] && g[1] === "o" && g[0] === " ") {
+            oPlayer(0);
+            return true
+    }
+    else if (g[3] === g[4] && g[3] === "o" && g[5] === " ") {
+          oPlayer(5);
+          return true
+    }
+    else if (g[3] === g[5] && g[3] === "o" && g[4] === " ") {
+          oPlayer(4);
+          return true
+    }
+    else if (g[4] === g[5] && g[4] === "o" && g[3] === " ") {
+          oPlayer(3);
+          return true
+    }
+    else if (g[6] === g[7] && g[6] === "o" && g[8] === " ") {
+          oPlayer(9);
+  return true
+    }
+    else if (g[6] === g[8] && g[6] === "o" && g[7] === " ") {
+          oPlayer(7);
+  return true
+    }
+    else if (g[7] === g[8] && g[7] === "o" && g[6] === " ") {
+          oPlayer(6);
+  return true
+    }// column
+    else if (g[0] === g[3] && g[0] === "o" && g[6] === " ") {
+          oPlayer(6);
+  return true
+    }
+    else if (g[0] === g[6] && g[0] === "o" && g[3] === " ") {
+          oPlayer(3);
+  return true
+    }
+    else if (g[6] === g[3] && g[6] === "o" && g[0] === " ") {
           oPlayer(0);
-          return false
-  }
-  else if (g[3] === g[4] && g[3] === "o" && g[5] === " ") {
-        oPlayer(5);
-        return false
-  }
-  else if (g[3] === g[5] && g[3] === "o" && g[4] === " ") {
-        oPlayer(4);
-        return false
-  }
-  else if (g[4] === g[5] && g[4] === "o" && g[3] === " ") {
-        oPlayer(3);
-        return false
-  }
-  else if (g[6] === g[7] && g[6] === "o" && g[8] === " ") {
-        oPlayer(9);
-return false
-  }
-  else if (g[6] === g[8] && g[6] === "o" && g[7] === " ") {
-        oPlayer(7);
-return false
-  }
-  else if (g[7] === g[8] && g[7] === "o" && g[6] === " ") {
-        oPlayer(6);
-return false
-  }// column
-  else if (g[0] === g[3] && g[0] === "o" && g[6] === " ") {
-        oPlayer(6);
-return false
-  }
-  else if (g[0] === g[6] && g[0] === "o" && g[3] === " ") {
-        oPlayer(3);
-return false
-  }
-  else if (g[6] === g[3] && g[6] === "o" && g[0] === " ") {
-        oPlayer(0);
-return false
-  }
-  else if (g[1] === g[4] && g[1] === "o" && g[7] === " ") {
-        oPlayer(7);
-return false
-  }
-  else if (g[1] === g[7] && g[1] === "o" && g[4] === " ") {
-        oPlayer(4);
-return false
-  }
-  else if (g[4] === g[7] && g[4] === "o" && g[1] === " ") {
-        oPlayer(1);
-return false
-  }
-  else if (g[2] === g[5] && g[2] === "o" && g[8] === " ") {
+  return true
+    }
+    else if (g[1] === g[4] && g[1] === "o" && g[7] === " ") {
+          oPlayer(7);
+  return true
+    }
+    else if (g[1] === g[7] && g[1] === "o" && g[4] === " ") {
+          oPlayer(4);
+  return true
+    }
+    else if (g[4] === g[7] && g[4] === "o" && g[1] === " ") {
+          oPlayer(1);
+  return true
+    }
+    else if (g[2] === g[5] && g[2] === "o" && g[8] === " ") {
+          oPlayer(8);
+  return true
+    }
+    else if (g[2] === g[8] && g[2] === "o" && g[5] === " ") {
+          oPlayer(5);
+  return true
+    }
+    else if (g[5] === g[8] && g[5] === "o" && g[2] === " ") {
+          oPlayer(2);
+  return true
+    } // Diagonal
+    else if (g[0] === g[4] && g[0] === "o" && g[8] === " ") {
         oPlayer(8);
-return false
-  }
-  else if (g[2] === g[8] && g[2] === "o" && g[5] === " ") {
-        oPlayer(5);
-return false
-  }
-  else if (g[5] === g[8] && g[5] === "o" && g[2] === " ") {
+  return true
+    }
+    else if (g[0] === g[8] && g[0] === "o" && g[4] === " ") {
+        oPlayer(4);
+  return true
+    }
+    else if (g[4] === g[8] && g[4] === "o" && g[0] === " ") {
+        oPlayer(0);
+  return true
+    }
+    else if (g[2] === g[4] && g[2] === "o" && g[6] === " ") {
+        oPlayer(6);
+  return true
+    }
+    else if (g[2] === g[6] && g[2] === "o" && g[4] === " ") {
+        oPlayer(4);
+  return true
+    }
+    else if (g[6] === g[4] && g[6] === "o" && g[2] === " ") {
         oPlayer(2);
-return false
-  } // Diagonal
-  else if (g[0] === g[4] && g[0] === "o" && g[8] === " ") {
-      oPlayer(8);
-return false
+  return true
   }
-  else if (g[0] === g[8] && g[0] === "o" && g[4] === " ") {
-      oPlayer(4);
-return false
-  }
-  else if (g[4] === g[8] && g[4] === "o" && g[0] === " ") {
-      oPlayer(0);
-return false
-  }
-  else if (g[2] === g[4] && g[2] === "o" && g[6] === " ") {
-      oPlayer(6);
-return false
-  }
-  else if (g[2] === g[6] && g[2] === "o" && g[4] === " ") {
-      oPlayer(4);
-return false
-  }
-  else if (g[6] === g[4] && g[6] === "o" && g[2] === " ") {
-      oPlayer(2);
-return false
-}
-  return true;
+  return false;
 };
 
 const aIdefence = function() {
-  if (g[0] === g[1] && g[0] === "x" && g[2] === " ") {
-        oPlayer(2);
-        return false;
-}
-  else if (g[0] === g[2] && g[0] === "x" && g[1] === " ") {
-        oPlayer(1);
-        return false;
-}
-  else if (g[1] === g[2] && g[1] === "x" && g[0] === " ") {
-        oPlayer(0);
-        return false;
-}
+    if (g[0] === g[1] && g[0] === "x" && g[2] === " ") {
+          oPlayer(2);
+          return true;
+  }
+    else if (g[0] === g[2] && g[0] === "x" && g[1] === " ") {
+          oPlayer(1);
+          return true;
+  }
+    else if (g[1] === g[2] && g[1] === "x" && g[0] === " ") {
+          oPlayer(0);
+          return true;
+  }
   else if (g[3] === g[4] && g[3] === "x" && g[5] === " ") {
         oPlayer(5);
-        return false;
+        return true;
   }
   else if (g[3] === g[5] && g[3] === "x" && g[4] === " ") {
         oPlayer(4);
-        return false;
+        return true;
   }
   else if (g[4] === g[5] && g[4] === "x" && g[3] === " ") {
         oPlayer(3);
-        return false;
+        return true;
   }
   else if (g[6] === g[7] && g[6] === "x" && g[8] === " ") {
         oPlayer(9);
-        return false;
+        return true;
   }
   else if (g[6] === g[8] && g[6] === "x" && g[7] === " ") {
         oPlayer(7);
-        return false;
+        return true;
   }
   else if (g[7] === g[8] && g[7] === "x" && g[6] === " ") {
         oPlayer(6);
-        return false;
+        return true;
   }// column
   else if (g[0] === g[3] && g[0] === "x" && g[6] === " ") {
         oPlayer(6);
-        return false;
+        return true;
   }
   else if (g[0] === g[6] && g[0] === "x" && g[3] === " ") {
         oPlayer(3);
-        return false;
+        return true;
   }
   else if (g[6] === g[3] && g[6] === "x" && g[0] === " ") {
         oPlayer(0);
-        return false;
-        return false;
+        return true;
   }
   else if (g[1] === g[4] && g[1] === "x" && g[7] === " ") {
         oPlayer(7);
-        return false;
+        return true;
   }
   else if (g[1] === g[7] && g[1] === "x" && g[4] === " ") {
         oPlayer(4);
-        return false;
+        return true;
   }
   else if (g[4] === g[7] && g[4] === "x" && g[1] === " ") {
         oPlayer(1);
-        return false;
+        return true;
   }
   else if (g[2] === g[5] && g[2] === "x" && g[8] === " ") {
         oPlayer(8);
-        return false;
+        return true;
   }
   else if (g[2] === g[8] && g[2] === "x" && g[5] === " ") {
         oPlayer(5);
-        return false;
+        return true;
   }
   else if (g[5] === g[8] && g[5] === "x" && g[2] === " ") {
         oPlayer(2);
-        return false;
+        return true;
   } // Diagonal
   else if (g[0] === g[4] && g[0] === "x" && g[8] === " ") {
       oPlayer(8);
-      return false;
+      return true;
   }
   else if (g[0] === g[8] && g[0] === "x" && g[4] === " ") {
       oPlayer(4);
-      return false;
+      return true;
   }
   else if (g[4] === g[8] && g[4] === "x" && g[0] === " ") {
       oPlayer(0);
-      return false;
+      return true;
   }
   else if (g[2] === g[4] && g[2] === "x" && g[6] === " ") {
       oPlayer(6);
-      return false;
+      return true;
   }
   else if (g[2] === g[6] && g[2] === "x" && g[4] === " ") {
       oPlayer(4);
-      return false;
+      return true;
   }
   else if (g[6] === g[4] && g[6] === "x" && g[2] === " ") {
       oPlayer(2);
-      return false;
+      return true;
   }
-  return true;
+  return false;
 };
 
 const random = function() {
-  for (var i = 0; i < g.length; i++) {
-    if (g[i] === " ") {
-      oPlyaer(i); // not working
-      return;
-    }
+  for (let i = 0; i < g.length; i++) {
+    console.log(g[i])
+    if (g[i] != "x" && g[i] != "o" && aIattack === false && aIdefence === false) {
+      g[i] = "o"; // not working
+      return true;
+    } else if (a)
+    return false;
   }
 };
 
-// const priority = function () {
-//   if (aIattack === false && aIdefence === false) {
-//     aIattack();
-//   } else {
-//     aIdefence();
-//   }
-// };
+
+const priorityMove = function () {
+  if (aIattack === true && random === true && aIdefence === true) {
+    aIattack();
+  } else if (aIattack === true && aIdefence === true) {
+    aIdefence();
+  } else if (aIattack === false && aIdefence === false){
+    random();
+  }
+};
 
 const checkWinner2 = function() {
       updateScreen();
