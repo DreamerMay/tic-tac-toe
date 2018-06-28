@@ -31,22 +31,28 @@ const playerTurns = function(index) {
       $('#x').css('border-bottom', '5px solid #555');
       turn += 1;
       playerOneIsNext = false;
-    } else {
-      oPlayer(index);
+
+      aIplay(); // call AI to play
+      // oPlayer(index); // ? remove?
       $('#playerY')[0].play();
       $('#x').css('border-bottom', '5px solid #FFC0CB');
       $('#o').css('border-bottom', '5px solid #555');
+
       turn += 1;
       playerOneIsNext = true;
     }
-
   };
-  // console.log(playerOneIsNext);
 };
+  // console.log(playerOneIsNext);
 
-Two players
-const checkWinner2 = function() {
-      updateScreen(); // update my final screen
+
+
+//AI playser
+const aIplay = function() {
+  if (turn === 2) {
+  //  oPlayer(4);
+  }
+      updateScreen();
   if ((g[0] === g[1] && g[1] === g[2] && g[0] != " ") ||
       (g[3] === g[4] && g[4] === g[5] && g[3] != " ") ||
       (g[6] === g[7] && g[7] === g[8] && g[6] != " ") ||
@@ -67,7 +73,6 @@ const checkWinner2 = function() {
         updateScreen();
       }
 };
-
 
 
 const renew = function() {
