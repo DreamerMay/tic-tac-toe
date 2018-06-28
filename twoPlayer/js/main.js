@@ -11,7 +11,8 @@ const g = [
 let playerOneIsNext = true;
 let turn = 0;
 let matchCompleted = false;
-
+let gameCountO = 0;
+let gameCountX = 0;
 
 
 const xPlayer = function (index) {
@@ -75,11 +76,14 @@ const renew = function() {
   if (matchCompleted === true) {
     for (var i = 0; i < g.length; i++) {
       g[i] = " ";
-
       matchCompleted = false;
+      $('#x').text(`X     ${gameCountX}`);
+      $('#o').text(`O     ${gameCountO}`);
     }
    }
 };
+
+
 
 const matchResultMsg = function () {
 
@@ -91,9 +95,11 @@ const matchResultMsg = function () {
     if (playerOneIsNext) {
       console.log("O is the winner");
       $('#gameCompleted').html(`O is a winner!`).fadeIn();
+      gameCountO += 1;
     } else {
       console.log("X is the winner");
       $('#gameCompleted').html(`X is a winner!`).fadeIn();
+      gameCountX += 1;
     }
 
 
