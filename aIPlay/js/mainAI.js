@@ -33,24 +33,21 @@ const playerTurns = function(index) {
       updateScreen()
 
       // call AI play
-// debugger;
       setTimeout (function() {
-        aIattack();
-        aIdefence();
         priorityMove();
         console.log("AI Playing");
         updateScreen()
         $('#playerY')[0].play();
         $('#x').css('border-bottom', '5px solid #FFC0CB');
         $('#o').css('border-bottom', '5px solid #555');
-
-        },1000)
-
+        },800)
       turn += 1;
       playerOneIsNext = true;
-
     }
-    updateScreen()
+    // checkWinner2();
+    // matchResultMsg();
+    // renew();
+    // updateScreen()
   };
 };
 
@@ -261,24 +258,22 @@ const aIdefence = function() {
 
 const random = function() {
   for (let i = 0; i < g.length; i++) {
-    console.log(g[i])
-     debugger;
+    console.log('iterating', i, g[i]);
     if (g[i] != "x" && g[i] != "o" && aIattack() === false && aIdefence() === false) {
       oPlayer(i);
-      return true;
-    } 
+      return;
+    }
+    // return true;
   }
-  return false;
+  // return false;
 };
 
 
 const priorityMove = function () {
-  if (aIattack() === true && random() === true && aIdefence() === true) {
-    aIattack();
-  } else if (aIattack() === true && aIdefence() === true) {
-    aIdefence();
-  } else if (aIattack() === false && aIdefence() === false){
-    random();
+  if (aIattack() === false)     {
+    if (aIdefence() === false) {
+      random();
+    }
   }
 };
 

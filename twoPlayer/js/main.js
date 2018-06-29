@@ -77,13 +77,11 @@ const renew = function() {
     for (var i = 0; i < g.length; i++) {
       g[i] = " ";
       matchCompleted = false;
-      $('#x').text(`X___${gameCountX}`);
-      $('#o').text(`O___${gameCountO}`);
+      $('#x').html(`X___${gameCountX}`);
+      $('#o').html(`O___${gameCountO}`);
     }
    }
 };
-
-
 
 const matchResultMsg = function () {
 
