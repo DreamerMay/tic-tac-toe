@@ -7,7 +7,7 @@
 Alternative Headings
 _____________________
 
-## Link To The LIve Site
+## Link To The Live Site
  https://dreamermay.github.io/tic-tac-toe/twoPlayer
 
 ## Link to the github codes

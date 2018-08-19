@@ -1,0 +1,100 @@
+
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Monoton', cursive;
+  background-color: #888;
+  width: cover;
+  height: cover;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+
+header {
+  justify-content:center;
+  color: pink;
+  font-size: 4vw;
+  text-shadow: 4px 4px 10px #333;
+  margin: -10px;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 0;
+}
+#container {
+  justify-content:center;
+}
+
+.buttonDiv  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.button {
+  background-color: #444;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #555;
+  font-family: 'Paytone+One', sans-serif;
+  font-weight: bold;
+  color:  pink;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  width: 4em ;
+  height: 1.5em;
+  margin: 1em;
+  font-size: 4vw;
+  margin: 10px 10px 20px 10px;
+}
+
+.gridContainer{
+    font-family: 'Monoton', cursive;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 10em 10em 10em;
+    grid-template-columns: 10em 10em 10em;
+}
+
+.box {
+  background-color: #444;
+  border: 2px solid #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  pink;
+  font-size: 6vw;
+}
+
+#gameCompleted {
+  display: none;
+  font-size: 10vw;
+  align-items:center;
+  justify-content: center;
+  color: pink;
+  width:100%;
+  height: 100%;
+  text-align: center;
+  left: 0;
+  position: absolute;
+  line-height: 100vh;
+  background-color: rgba(6, 6, 6, 0.7);
+}
+
+
+@media(max-width: 500px) {
+    .gridContainer {
+      grid-template-rows: 5em 5em 5em;
+      grid-template-columns: 5em 5em 5em;
+    }
+    .button {
+      width: 6em ;
+      height: 2em;
+    }
+  }
